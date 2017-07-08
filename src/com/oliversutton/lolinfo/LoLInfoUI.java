@@ -70,7 +70,6 @@ public class LoLInfoUI {
 		comboRegion.setSelectedIndex(0);
 		
 		JButton btnSearch = new JButton("Search");
-		
 		btnSearch.setBounds(263, 22, 87, 22);
 		panelSearch.add(btnSearch);
 		
@@ -105,7 +104,40 @@ public class LoLInfoUI {
 		lblTitleLoL.setBounds(16, 5, 33, 21);
 		panelLogo.add(lblTitleLoL);
 		
-		// Add actionListeners to components
+		// display summoner information panel.
+		
+		JPanel panelSummonerInformation = new JPanel();
+		panelSummonerInformation.setBounds(10, 82, 286, 69);
+		frmLolinfo.getContentPane().add(panelSummonerInformation);
+		panelSummonerInformation.setLayout(null);
+		panelSummonerInformation.setVisible(false);
+		
+		JLabel lblLevel = new JLabel("Level:");
+		lblLevel.setBounds(10, 28, 112, 14);
+		panelSummonerInformation.add(lblLevel);
+		
+		JLabel lblName = new JLabel("Name:");
+		lblName.setBounds(10, 11, 112, 14);
+		panelSummonerInformation.add(lblName);
+		
+		JLabel lblRank = new JLabel("Rank:");
+		lblRank.setBounds(132, 11, 144, 14);
+		panelSummonerInformation.add(lblRank);
+		
+		JLabel lblLeaguePoints = new JLabel("LP:");
+		lblLeaguePoints.setBounds(132, 28, 144, 14);
+		panelSummonerInformation.add(lblLeaguePoints);
+		
+		JLabel lblRankedLeague = new JLabel("League:");
+		lblRankedLeague.setBounds(132, 44, 144, 14);
+		panelSummonerInformation.add(lblRankedLeague);
+		
+		// Give access to labels in another classes.
+		new DisplaySummonerInformation(panelSummonerInformation, lblName, lblLevel, lblRank, lblLeaguePoints, lblRankedLeague);
+		
+		// Add actionListeners to components.
 		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName, lblUserFeedback));
+		
+		
 	}
 }

@@ -14,13 +14,15 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
+
 
 public class SearchSummoner implements ActionListener{
 	
 	private JComboBox<?> comboRegion;
 	private JTextField txtSummonerName;
 	private JLabel lblUserFeedback;
-	private int summonerId;
 	private String apiKey = getApiKey();
 	
 	// Gets the 3 elements that will be needed to search summoner id and also allow for user feedback.
@@ -83,10 +85,31 @@ public class SearchSummoner implements ActionListener{
 		String returnedInfo;
 		
 		while((returnedInfo = in.readLine()) != null) {
-			System.out.println(returnedInfo);
+			JSONParser parser = new JSONParser();
+			try {
+				Object object = parser.parse(returnedInfo);
+				
+				JSONObject jsonObject = (JSONObject)object;
+				
+				String name = (String) jsonObject.get("name");
+				long level = (long) jsonObject.get("summonerLevel");
+				long summonerId = (long) jsonObject.get("id");
+				long accountId = (long) jsonObject.get("accountId");
+				
+				System.out.println(name + " " + level);
+				
+				SummonerInfo.setName(name);
+				SummonerInfo.setLevel(level);
+				SummonerInfo.setSummonerId(summonerId);
+				SummonerInfo.setAccountId(accountId);
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
-		
 		in.close();
+		
+		DisplaySummonerInformation.fillInformation();
+		
 	} 
-	
 }
