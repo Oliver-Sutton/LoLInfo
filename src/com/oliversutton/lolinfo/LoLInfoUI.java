@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LoLInfoUI {
 
@@ -44,6 +46,7 @@ public class LoLInfoUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frmLolinfo = new JFrame();
 		frmLolinfo.setTitle("LoLInfo");
 		frmLolinfo.setBounds(100, 100, 450, 300);
@@ -61,13 +64,14 @@ public class LoLInfoUI {
 		txtSummonerName.setToolTipText("");
 		txtSummonerName.setColumns(10);
 		
-		JComboBox comboRegion = new JComboBox();
+		JComboBox<?> comboRegion = new JComboBox();
 		comboRegion.setBounds(146, 23, 54, 20);
 		panelSearch.add(comboRegion);
 		comboRegion.setModel(new DefaultComboBoxModel(new String[] {"EUW", "NA"}));
 		comboRegion.setSelectedIndex(0);
 		
 		JButton btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName));
 		btnSearch.setBounds(210, 22, 89, 22);
 		panelSearch.add(btnSearch);
 		
