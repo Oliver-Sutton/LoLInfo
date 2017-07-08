@@ -11,8 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class LoLInfoUI {
 
@@ -43,18 +42,18 @@ public class LoLInfoUI {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise the contents of the frame.
 	 */
 	private void initialize() {
 		
 		frmLolinfo = new JFrame();
 		frmLolinfo.setTitle("LoLInfo");
-		frmLolinfo.setBounds(100, 100, 450, 300);
+		frmLolinfo.setBounds(100, 100, 466, 301);
 		frmLolinfo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLolinfo.getContentPane().setLayout(null);
 		
 		JPanel panelSearch = new JPanel();
-		panelSearch.setBounds(86, 11, 309, 53);
+		panelSearch.setBounds(77, 11, 360, 60);
 		frmLolinfo.getContentPane().add(panelSearch);
 		panelSearch.setLayout(null);
 		
@@ -65,14 +64,14 @@ public class LoLInfoUI {
 		txtSummonerName.setColumns(10);
 		
 		JComboBox<?> comboRegion = new JComboBox();
-		comboRegion.setBounds(146, 23, 54, 20);
+		comboRegion.setBounds(146, 23, 107, 20);
 		panelSearch.add(comboRegion);
-		comboRegion.setModel(new DefaultComboBoxModel(new String[] {"EUW", "NA"}));
+		comboRegion.setModel(new DefaultComboBoxModel(new String[] {"Select Region", "EUW", "NA"}));
 		comboRegion.setSelectedIndex(0);
 		
 		JButton btnSearch = new JButton("Search");
-		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName));
-		btnSearch.setBounds(210, 22, 89, 22);
+		
+		btnSearch.setBounds(263, 22, 87, 22);
 		panelSearch.add(btnSearch);
 		
 		JLabel lblSummonerName = new JLabel("Summoner Name");
@@ -82,6 +81,12 @@ public class LoLInfoUI {
 		JLabel lblRegion = new JLabel("Region");
 		lblRegion.setBounds(146, 8, 46, 14);
 		panelSearch.add(lblRegion);
+		
+		JLabel lblUserFeedback = new JLabel("");
+		lblUserFeedback.setForeground(Color.RED);
+		lblUserFeedback.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUserFeedback.setBounds(0, 45, 360, 14);
+		panelSearch.add(lblUserFeedback);
 		
 		JPanel panelLogo = new JPanel();
 		panelLogo.setBounds(10, 11, 57, 53);
@@ -99,5 +104,8 @@ public class LoLInfoUI {
 		lblTitleLoL.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblTitleLoL.setBounds(16, 5, 33, 21);
 		panelLogo.add(lblTitleLoL);
+		
+		// Add actionListeners to components
+		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName, lblUserFeedback));
 	}
 }
