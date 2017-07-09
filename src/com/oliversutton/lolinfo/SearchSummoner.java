@@ -48,7 +48,7 @@ public class SearchSummoner implements ActionListener{
 		}
 	}
 	
-	private String getApiKey(){
+	public static String getApiKey(){
 		String filePath = "D:\\Java\\LoLInfo\\apiKey.txt";
 		String apiKey = "";
 		BufferedReader readerBuffer = null;
@@ -60,21 +60,18 @@ public class SearchSummoner implements ActionListener{
 	
 	private void getSummonerId(String summonerName) throws IOException{
 		
-		String server;
-		
 		switch ((String)this.comboRegion.getSelectedItem()) {
 		case "EUW":
-			server = "euw1";
+			SummonerInfo.setRegion("euw1");
 			break;
 		case "NA":
-			server = "na";
+			SummonerInfo.setRegion("na1");
 			break;
 		default:
-			server = "euw1";
 			break;
 		}
 		
-		String requestString = "https://" + server + ".api.riotgames.com/lol/summoner/v3/summoners/by-name/" 
+		String requestString = "https://" + SummonerInfo.getRegion() + ".api.riotgames.com/lol/summoner/v3/summoners/by-name/" 
 								+ this.txtSummonerName.getText() + "?api_key=" + this.apiKey;
 		
 		URL url = new URL(requestString);
@@ -95,9 +92,7 @@ public class SearchSummoner implements ActionListener{
 				long level = (long) jsonObject.get("summonerLevel");
 				long summonerId = (long) jsonObject.get("id");
 				long accountId = (long) jsonObject.get("accountId");
-				
-				System.out.println(name + " " + level);
-				
+		
 				SummonerInfo.setName(name);
 				SummonerInfo.setLevel(level);
 				SummonerInfo.setSummonerId(summonerId);

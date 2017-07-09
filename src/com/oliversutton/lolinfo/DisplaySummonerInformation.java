@@ -25,8 +25,20 @@ public class DisplaySummonerInformation {
 	
 	public static void fillInformation() {
 		
+		String[] rankedInformation = {};
+		
+		try {
+			rankedInformation = getRankedInformation.getInfo(SummonerInfo.getSummonerId());
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		_lblName.setText("Name: " + SummonerInfo.getName());
 		_lblLevel.setText("Level: " + SummonerInfo.getLevel());
+		_lblRank.setText("Rank: " + rankedInformation[0] + " " + rankedInformation[1]);
+		_lblLeaguePoints.setText("LP: " + rankedInformation[3]);
+		_lblRankedLeague.setText("League: " + rankedInformation[2]);
+		
 		
 		_panelInfo.setVisible(true);
 	}

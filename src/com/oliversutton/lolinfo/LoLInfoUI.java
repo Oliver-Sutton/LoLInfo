@@ -44,6 +44,7 @@ public class LoLInfoUI {
 	/**
 	 * Initialise the contents of the frame.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		
 		frmLolinfo = new JFrame();

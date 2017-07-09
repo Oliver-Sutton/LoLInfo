@@ -2,10 +2,19 @@ package com.oliversutton.lolinfo;
 
 public class SummonerInfo {
 
+	private static String _region = "";
 	private static long _summonerId = 0;
 	private static long _accountId = 0;
 	private static String _name = "";
 	private static long _level = 0;
+	
+	public static void setRegion(String region) {
+		_region = region;
+	}
+	
+	public static String getRegion() {
+		return _region;
+	}
 	
 	public static void setSummonerId(long summonerId) {
 		_summonerId = summonerId;
