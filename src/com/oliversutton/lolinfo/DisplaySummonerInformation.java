@@ -39,7 +39,6 @@ public class DisplaySummonerInformation {
 		_lblLeaguePoints.setText("LP: " + rankedInformation[3]);
 		_lblRankedLeague.setText("League: " + rankedInformation[2]);
 		
-		
 		_panelInfo.setVisible(true);
 	}
 	
