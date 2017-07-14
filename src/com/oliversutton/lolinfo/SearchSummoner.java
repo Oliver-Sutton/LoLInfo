@@ -3,8 +3,6 @@ package com.oliversutton.lolinfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -23,7 +21,7 @@ public class SearchSummoner implements ActionListener{
 	private JComboBox<?> comboRegion;
 	private JTextField txtSummonerName;
 	private JLabel lblUserFeedback;
-	private String apiKey = getApiKey();
+	private String apiKey = ApiKey.getApiKey();
 	
 	// Gets the 3 elements that will be needed to search summoner id and also allow for user feedback.
 	public SearchSummoner(JComboBox<?> comboRegion, JTextField txtSummonerName, JLabel lblUserFeedback) {
@@ -46,16 +44,6 @@ public class SearchSummoner implements ActionListener{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-	}
-	
-	public static String getApiKey(){
-		String filePath = "D:\\Java\\LoLInfo\\apiKey.txt";
-		String apiKey = "";
-		BufferedReader readerBuffer = null;
-		try { readerBuffer = new BufferedReader(new FileReader(filePath)); } catch (FileNotFoundException e) { e.printStackTrace(); }
-		try { apiKey = readerBuffer.readLine(); } catch (IOException e) { e.printStackTrace(); }
-		try { readerBuffer.close(); } catch (IOException e) { e.printStackTrace(); }
-		return apiKey;
 	}
 	
 	private void getSummonerId(String summonerName) throws IOException{

@@ -108,7 +108,7 @@ public class LoLInfoUI {
 		// display summoner information panel.
 		
 		JPanel panelSummonerInformation = new JPanel();
-		panelSummonerInformation.setBounds(10, 82, 286, 69);
+		panelSummonerInformation.setBounds(10, 82, 427, 69);
 		frmLolinfo.getContentPane().add(panelSummonerInformation);
 		panelSummonerInformation.setLayout(null);
 		panelSummonerInformation.setVisible(false);
@@ -133,12 +133,22 @@ public class LoLInfoUI {
 		lblRankedLeague.setBounds(132, 44, 144, 14);
 		panelSummonerInformation.add(lblRankedLeague);
 		
+		
 		// Give access to labels in another classes.
 		new DisplaySummonerInformation(panelSummonerInformation, lblName, lblLevel, lblRank, lblLeaguePoints, lblRankedLeague);
 		
+		JButton btnSearchForMatch = new JButton("Search");
+		btnSearchForMatch.setBounds(316, 32, 89, 23);
+		panelSummonerInformation.add(btnSearchForMatch);
+		
+		JLabel lblTitleSearchMatch = new JLabel("Search For a Game");
+		lblTitleSearchMatch.setBounds(306, 11, 111, 14);
+		panelSummonerInformation.add(lblTitleSearchMatch);
+		lblTitleSearchMatch.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		// Add actionListeners to components.
 		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName, lblUserFeedback));
-		
+		btnSearchForMatch.addActionListener(new SearchForMatch());
 		
 	}
 }
