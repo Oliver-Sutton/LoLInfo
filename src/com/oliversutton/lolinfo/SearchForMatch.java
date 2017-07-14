@@ -11,12 +11,11 @@ public class SearchForMatch implements ActionListener{
 	private String apiKey = ApiKey.getApiKey();
 	
 	public void actionPerformed(ActionEvent e) {
-		try {
-			getMatchData();
-		} catch (Exception e1) {
-			e1.printStackTrace();
+		try { 
+			getMatchData(); 
+		} catch (Exception e1) { 
+			e1.printStackTrace(); 
 		}
-		
 	}
 	
 	public void getMatchData() throws IOException {

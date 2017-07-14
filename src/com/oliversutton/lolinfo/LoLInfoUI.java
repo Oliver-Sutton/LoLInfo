@@ -49,7 +49,7 @@ public class LoLInfoUI {
 		
 		frmLolinfo = new JFrame();
 		frmLolinfo.setTitle("LoLInfo");
-		frmLolinfo.setBounds(100, 100, 466, 301);
+		frmLolinfo.setBounds(100, 100, 466, 272);
 		frmLolinfo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLolinfo.getContentPane().setLayout(null);
 		
@@ -108,47 +108,57 @@ public class LoLInfoUI {
 		// display summoner information panel.
 		
 		JPanel panelSummonerInformation = new JPanel();
-		panelSummonerInformation.setBounds(10, 82, 427, 69);
+		panelSummonerInformation.setBounds(10, 82, 427, 73);
 		frmLolinfo.getContentPane().add(panelSummonerInformation);
 		panelSummonerInformation.setLayout(null);
 		panelSummonerInformation.setVisible(false);
 		
 		JLabel lblLevel = new JLabel("Level:");
-		lblLevel.setBounds(10, 28, 112, 14);
+		lblLevel.setBounds(10, 28, 181, 14);
 		panelSummonerInformation.add(lblLevel);
 		
-		JLabel lblName = new JLabel("Name:");
-		lblName.setBounds(10, 11, 112, 14);
+		JLabel lblName = new JLabel("Name: ");
+		lblName.setBounds(10, 11, 181, 14);
 		panelSummonerInformation.add(lblName);
 		
 		JLabel lblRank = new JLabel("Rank:");
-		lblRank.setBounds(132, 11, 144, 14);
+		lblRank.setBounds(201, 11, 139, 14);
 		panelSummonerInformation.add(lblRank);
 		
 		JLabel lblLeaguePoints = new JLabel("LP:");
-		lblLeaguePoints.setBounds(132, 28, 144, 14);
+		lblLeaguePoints.setBounds(201, 28, 139, 14);
 		panelSummonerInformation.add(lblLeaguePoints);
 		
 		JLabel lblRankedLeague = new JLabel("League:");
-		lblRankedLeague.setBounds(132, 44, 144, 14);
+		lblRankedLeague.setBounds(201, 44, 139, 14);
 		panelSummonerInformation.add(lblRankedLeague);
 		
+		JLabel lblIconImage = new JLabel("");
+		lblIconImage.setBounds(367, 11, 50, 50);
+		panelSummonerInformation.add(lblIconImage);
 		
-		// Give access to labels in another classes.
-		new DisplaySummonerInformation(panelSummonerInformation, lblName, lblLevel, lblRank, lblLeaguePoints, lblRankedLeague);
+		// display search game panel.
 		
-		JButton btnSearchForMatch = new JButton("Search");
-		btnSearchForMatch.setBounds(316, 32, 89, 23);
-		panelSummonerInformation.add(btnSearchForMatch);
+		JPanel panelSearchForGame = new JPanel();
+		panelSearchForGame.setBounds(157, 166, 125, 53);
+		frmLolinfo.getContentPane().add(panelSearchForGame);
+		panelSearchForGame.setVisible(false);
 		
 		JLabel lblTitleSearchMatch = new JLabel("Search For a Game");
-		lblTitleSearchMatch.setBounds(306, 11, 111, 14);
-		panelSummonerInformation.add(lblTitleSearchMatch);
+		panelSearchForGame.add(lblTitleSearchMatch);
 		lblTitleSearchMatch.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JButton btnSearchForMatch = new JButton("Search");
+		panelSearchForGame.add(btnSearchForMatch);
+		btnSearchForMatch.addActionListener(new SearchForMatch());
+		
+		// Give access to labels in another classes.
+		new DisplaySummonerInformation(panelSummonerInformation, panelSearchForGame, lblName, lblLevel, lblRank, lblLeaguePoints, lblRankedLeague, lblIconImage);
 		
 		// Add actionListeners to components.
 		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName, lblUserFeedback));
-		btnSearchForMatch.addActionListener(new SearchForMatch());
+		
+		
 		
 	}
 }

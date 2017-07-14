@@ -6,20 +6,24 @@ import javax.swing.JPanel;
 public class DisplaySummonerInformation {
 
 	private static JPanel _panelInfo;
+	private static JPanel _panelSearchGame;
 	private static JLabel _lblName;
 	private static JLabel _lblLevel;
 	private static JLabel _lblRank;
 	private static JLabel _lblLeaguePoints;
 	private static JLabel _lblRankedLeague;
+	private static JLabel _lblIconImage;
 	
-	public DisplaySummonerInformation(JPanel panelInfo, JLabel lblName, JLabel lblLevel, JLabel lblRank, JLabel lblLeaguePoints, JLabel lblRankedLeague) {
+	public DisplaySummonerInformation(JPanel panelInfo, JPanel panelSearchGame,JLabel lblName, JLabel lblLevel, JLabel lblRank, JLabel lblLeaguePoints, JLabel lblRankedLeague, JLabel lblIconImage) {
 		
 		_panelInfo = panelInfo;
+		_panelSearchGame = panelSearchGame;
 		_lblName = lblName;
 		_lblLevel = lblLevel;
 		_lblRank = lblRank;
 		_lblLeaguePoints = lblLeaguePoints;
 		_lblRankedLeague = lblRankedLeague;
+		_lblIconImage = lblIconImage;
 		
 	}
 	
@@ -39,7 +43,11 @@ public class DisplaySummonerInformation {
 		_lblLeaguePoints.setText("LP: " + rankedInformation[3]);
 		_lblRankedLeague.setText("League: " + rankedInformation[2]);
 		
+		displayRankedIcon.drawImages(rankedInformation[0], rankedInformation[1], _lblIconImage);
+		
 		_panelInfo.setVisible(true);
+		_panelSearchGame.setVisible(true);
+		
 	}
 	
 }
