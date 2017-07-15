@@ -122,15 +122,15 @@ public class LoLInfoUI {
 		panelSummonerInformation.add(lblName);
 		
 		JLabel lblRank = new JLabel("Rank:");
-		lblRank.setBounds(201, 11, 139, 14);
+		lblRank.setBounds(186, 11, 171, 14);
 		panelSummonerInformation.add(lblRank);
 		
 		JLabel lblLeaguePoints = new JLabel("LP:");
-		lblLeaguePoints.setBounds(201, 28, 139, 14);
+		lblLeaguePoints.setBounds(186, 28, 171, 14);
 		panelSummonerInformation.add(lblLeaguePoints);
 		
 		JLabel lblRankedLeague = new JLabel("League:");
-		lblRankedLeague.setBounds(201, 44, 139, 14);
+		lblRankedLeague.setBounds(186, 44, 171, 14);
 		panelSummonerInformation.add(lblRankedLeague);
 		
 		JLabel lblIconImage = new JLabel("");

@@ -13,7 +13,7 @@ public class displayRankedIcon {
 	public static void drawImages(String rank, String tier, JLabel lblIconImage) {
 
 		String iconName = rank.toLowerCase() + "_" + tier.toLowerCase() + ".png";
-		String filePath = "D:\\Java\\LoLInfo\\tier-icons\\" + iconName;
+		String filePath = System.getProperty("user.dir") + "\\tier-icons\\" + iconName;
 
 		BufferedImage img = null;
 		
