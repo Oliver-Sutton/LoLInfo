@@ -10,11 +10,20 @@ import javax.swing.JLabel;
 
 public class displayRankedIcon {
 
-	public static void drawImages(String rank, String tier, JLabel lblIconImage) {
+	public static void drawImages(String tier, String rank, JLabel lblIconImage) {
 
-		String iconName = rank.toLowerCase() + "_" + tier.toLowerCase() + ".png";
+		String iconName = "";
+		
+		if(tier.toUpperCase().equals("MASTER")) {
+			iconName = "master.png";
+		} else if(tier.toUpperCase().equals("CHALLENGER")) {
+			iconName = "challenger.png";
+		
+		} else {
+			iconName = tier.toLowerCase() + "_" + rank.toLowerCase() + ".png";
+		}
+
 		String filePath = System.getProperty("user.dir") + "\\tier-icons\\" + iconName;
-
 		BufferedImage img = null;
 		
 		try {
