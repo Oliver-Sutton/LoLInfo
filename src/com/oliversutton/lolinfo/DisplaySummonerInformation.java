@@ -32,7 +32,9 @@ public class DisplaySummonerInformation {
 		String[] rankedInformation = {};
 		
 		try {
-			rankedInformation = getRankedInformation.getInfo(SummonerInfo.getSummonerId());
+			getRankedInformation rankedInfo = new getRankedInformation();
+			rankedInformation = rankedInfo.getInfo(SummonerInfo.getSummonerId());
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

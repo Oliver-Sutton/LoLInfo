@@ -12,7 +12,7 @@ import org.json.simple.parser.*;
 
 public class getRankedInformation {
 
-	public static String[] getInfo(long summonerId) throws IOException {
+	public String[] getInfo(long summonerId) throws IOException {
 		
 		String[] rankedInformation = {"","","",""}; // initialise ranked information array to be returned.
 		

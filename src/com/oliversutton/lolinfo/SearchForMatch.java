@@ -14,6 +14,8 @@ import org.json.simple.parser.JSONParser;
 
 public class SearchForMatch implements ActionListener{
 	
+	// summoner spell link http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/ + imageName.png
+	
 	private String apiKey = ApiKey.getApiKey();
 	
 	public void actionPerformed(ActionEvent e) {
@@ -43,12 +45,25 @@ public class SearchForMatch implements ActionListener{
 				
 				JSONObject jsonObject = (JSONObject)object;
 				
+				System.out.println(jsonObject.get("gameMode"));
+				
 				JSONArray playerArray = (JSONArray)jsonObject.get("participants");
 				
 				for(int i = 0; i != playerArray.toArray().length; i++) {
 					JSONObject playerInfo = (JSONObject)playerArray.get(i);
+					
 					String summonerName = (String) playerInfo.get("summonerName");
-					System.out.println(summonerName);
+					Long summonerId = (Long) playerInfo.get("summonerId");
+					Long summonerSpell1 = (Long) playerInfo.get("spell1Id");
+					Long summonerSpell2 = (Long) playerInfo.get("spell2Id");
+					Long summonerChampion = (Long) playerInfo.get("championId");
+					Long summonerTeam = (Long) playerInfo.get("teamId");
+					
+					getRankedInformation rankedInfo = new getRankedInformation();
+					String[] rankedInformation = rankedInfo.getInfo(summonerId);
+					
+					System.out.println(rankedInformation[0] + "_" + rankedInformation[1]  + ".png");
+					System.out.println(summonerName + " " + summonerChampion + " " + summonerSpell1 + " " + summonerSpell2 + " " + summonerTeam);
 				}
 				
 				
