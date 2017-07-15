@@ -60,7 +60,7 @@ public class SearchSummoner implements ActionListener{
 		}
 		
 		String requestString = "https://" + SummonerInfo.getRegion() + ".api.riotgames.com/lol/summoner/v3/summoners/by-name/" 
-								+ this.txtSummonerName.getText() + "?api_key=" + this.apiKey;
+								+ this.txtSummonerName.getText().replace(" ", "%20") + "?api_key=" + this.apiKey;
 		
 		URL url = new URL(requestString);
 		URLConnection connection = url.openConnection();
