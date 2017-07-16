@@ -18,7 +18,7 @@ public class getRankedInformation {
 		
 		
 		String requestString = "https://" + SummonerInfo.getRegion() + ".api.riotgames.com/lol/league/v3/positions/by-summoner/"
-								+ SummonerInfo.getSummonerId() + "?api_key=" + ApiKey.getApiKey();
+								+ summonerId + "?api_key=" + ApiKey.getApiKey();
 		URL url = new URL(requestString);
 		URLConnection connection = url.openConnection();
 		connection.connect();
