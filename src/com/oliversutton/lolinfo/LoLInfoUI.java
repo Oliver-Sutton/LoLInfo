@@ -49,7 +49,7 @@ public class LoLInfoUI {
 		
 		frmLolinfo = new JFrame();
 		frmLolinfo.setTitle("LoLInfo");
-		frmLolinfo.setBounds(100, 100, 466, 272);
+		frmLolinfo.setBounds(100, 100, 864, 542);
 		frmLolinfo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLolinfo.getContentPane().setLayout(null);
 		
@@ -137,11 +137,99 @@ public class LoLInfoUI {
 		lblIconImage.setBounds(367, 11, 50, 50);
 		panelSummonerInformation.add(lblIconImage);
 		
+		// Add actionListeners to components.
+		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName, lblUserFeedback));
+		
+		JPanel panelMatchInfo = new JPanel();
+		panelMatchInfo.setBounds(10, 11, 828, 481);
+		frmLolinfo.getContentPane().add(panelMatchInfo);
+		panelMatchInfo.setLayout(null);
+		
+		JLabel lblTeam21 = new JLabel("Team 2 Player 1");
+		lblTeam21.setBounds(45, 456, 84, 14);
+		panelMatchInfo.add(lblTeam21);
+		
+		JLabel lblTeam22 = new JLabel("Team 2 Player 2");
+		lblTeam22.setBounds(192, 456, 84, 14);
+		panelMatchInfo.add(lblTeam22);
+		
+		JLabel lblTeam23 = new JLabel("Team 2 Player 3");
+		lblTeam23.setBounds(369, 456, 84, 14);
+		panelMatchInfo.add(lblTeam23);
+		
+		JLabel lblTeam24 = new JLabel("Team 2 Player 4");
+		lblTeam24.setBounds(545, 456, 84, 14);
+		panelMatchInfo.add(lblTeam24);
+		
+		JLabel lblTeam25 = new JLabel("Team 2 Player 5");
+		lblTeam25.setBounds(699, 456, 84, 14);
+		panelMatchInfo.add(lblTeam25);
+		
+		JLabel lblTeam11 = new JLabel("Team 1 Player 1");
+		lblTeam11.setBounds(45, 215, 84, 14);
+		panelMatchInfo.add(lblTeam11);
+		
+		JLabel lblTeam12 = new JLabel("Team 1 Player 2");
+		lblTeam12.setBounds(192, 215, 84, 14);
+		panelMatchInfo.add(lblTeam12);
+		
+		JLabel lblTeam13 = new JLabel("Team 1 Player 3");
+		lblTeam13.setBounds(369, 215, 84, 14);
+		panelMatchInfo.add(lblTeam13);
+		
+		JLabel lblTeam14 = new JLabel("Team 1 Player 4");
+		lblTeam14.setBounds(545, 215, 84, 14);
+		panelMatchInfo.add(lblTeam14);
+		
+		JLabel lblTeam15 = new JLabel("Team 1 Player 5");
+		lblTeam15.setBounds(699, 215, 84, 14);
+		panelMatchInfo.add(lblTeam15);
+		
+		JLabel lblChampion11 = new JLabel("Team 1 Champion 1");
+		lblChampion11.setBounds(37, 200, 99, 14);
+		panelMatchInfo.add(lblChampion11);
+		
+		JLabel lblChampion12 = new JLabel("Team 1 Champion 2");
+		lblChampion12.setBounds(184, 200, 99, 14);
+		panelMatchInfo.add(lblChampion12);
+		
+		JLabel lblChampion13 = new JLabel("Team 1 Champion 3");
+		lblChampion13.setBounds(358, 200, 99, 14);
+		panelMatchInfo.add(lblChampion13);
+		
+		JLabel lblChampion14 = new JLabel("Team 1 Champion 4");
+		lblChampion14.setBounds(536, 200, 99, 14);
+		panelMatchInfo.add(lblChampion14);
+		
+		JLabel lblChampion15 = new JLabel("Team 1 Champion 5");
+		lblChampion15.setBounds(690, 200, 99, 14);
+		panelMatchInfo.add(lblChampion15);
+		
+		JLabel lblChampion21 = new JLabel("Team 2 Champion 1");
+		lblChampion21.setBounds(37, 439, 99, 14);
+		panelMatchInfo.add(lblChampion21);
+		
+		JLabel lblChampion22 = new JLabel("Team 2 Champion 2");
+		lblChampion22.setBounds(184, 439, 99, 14);
+		panelMatchInfo.add(lblChampion22);
+		
+		JLabel lblChampion23 = new JLabel("Team 2 Champion 3");
+		lblChampion23.setBounds(358, 439, 99, 14);
+		panelMatchInfo.add(lblChampion23);
+		
+		JLabel lblChampion24 = new JLabel("Team 2 Champion 4");
+		lblChampion24.setBounds(536, 439, 104, 14);
+		panelMatchInfo.add(lblChampion24);
+		
+		JLabel lblChampion25 = new JLabel("Team 2 Champion 5");
+		lblChampion25.setBounds(686, 439, 103, 14);
+		panelMatchInfo.add(lblChampion25);
+		
 		// display search game panel.
 		
 		JPanel panelSearchForGame = new JPanel();
-		panelSearchForGame.setBounds(157, 166, 125, 53);
-		frmLolinfo.getContentPane().add(panelSearchForGame);
+		panelSearchForGame.setBounds(143, 143, 125, 53);
+		panelMatchInfo.add(panelSearchForGame);
 		panelSearchForGame.setVisible(false);
 		
 		JLabel lblTitleSearchMatch = new JLabel("Search For a Game");
@@ -154,11 +242,6 @@ public class LoLInfoUI {
 		
 		// Give access to labels in another classes.
 		new DisplaySummonerInformation(panelSummonerInformation, panelSearchForGame, lblName, lblLevel, lblRank, lblLeaguePoints, lblRankedLeague, lblIconImage);
-		
-		// Add actionListeners to components.
-		btnSearch.addActionListener(new SearchSummoner(comboRegion, txtSummonerName, lblUserFeedback));
-		
-		
 		
 	}
 }
