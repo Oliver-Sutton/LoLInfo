@@ -34,7 +34,6 @@ public class DisplaySummonerInformation {
 		try {
 			getRankedInformation rankedInfo = new getRankedInformation();
 			rankedInformation = rankedInfo.getInfo(SummonerInfo.getSummonerId());
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -45,7 +44,13 @@ public class DisplaySummonerInformation {
 		_lblLeaguePoints.setText("LP: " + rankedInformation[3]);
 		_lblRankedLeague.setText("League: " + rankedInformation[2]);
 		
-		displayRankedIcon.drawImages(rankedInformation[0], rankedInformation[1], _lblIconImage);
+		
+		if(rankedInformation[0].equals(null)) {
+			displayRankedIcon.drawImages("provisional", "i", _lblIconImage);
+		} else {
+			displayRankedIcon.drawImages(rankedInformation[0], rankedInformation[1], _lblIconImage);
+		}
+		
 		
 		_panelInfo.setVisible(true);
 		_panelSearchGame.setVisible(true);

@@ -19,6 +19,8 @@ public class displayRankedIcon {
 		} else if(tier.toUpperCase().equals("CHALLENGER")) {
 			iconName = "challenger.png";
 		
+		} else if(tier.toUpperCase().equals("PROVISIONAL")) {
+			iconName = "provisional.png";
 		} else {
 			iconName = tier.toLowerCase() + "_" + rank.toLowerCase() + ".png";
 		}

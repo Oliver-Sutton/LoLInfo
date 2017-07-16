@@ -45,7 +45,7 @@ public class SearchForMatch implements ActionListener{
 				
 				JSONObject jsonObject = (JSONObject)object;
 				
-				System.out.println(jsonObject.get("gameMode"));
+				System.out.println(jsonObject.get("gameMode") + " " + jsonObject.get("gameType"));
 				
 				JSONArray playerArray = (JSONArray)jsonObject.get("participants");
 				

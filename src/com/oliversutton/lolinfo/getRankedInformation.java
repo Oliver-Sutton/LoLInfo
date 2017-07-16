@@ -32,6 +32,16 @@ public class getRankedInformation {
 				Object object = parser.parse(returnedInfo);
 				
 				JSONArray jsonArray = (JSONArray)object;
+				
+				if(jsonArray.toString().equals("[]")) {
+					rankedInformation[0] = "PROVISIONAL";
+					rankedInformation[1] = "";
+					rankedInformation[2] = "N/A";
+					rankedInformation[3] = "N/A";
+					
+					return rankedInformation;
+				}
+				
 				JSONObject jsonObject = (JSONObject)jsonArray.get(0);
 				
 				rankedInformation[0]  = (String)jsonObject.get("tier");
